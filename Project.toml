@@ -1,6 +1,6 @@
 name = "CICs"
 uuid = "9680ee12-1be6-48ea-93fc-78f6a5bdaf0e"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Danny Winrow <dwinrow@boalco.com>"]
 
 [deps]
