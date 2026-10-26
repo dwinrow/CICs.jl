@@ -16,8 +16,9 @@ subcategory(cic::CIC) = seconddigit[parse(Int, cic.cic[4]),parse(Int, cic.cic[3]
 country(cic::CIC) = country(cic.cic[1:2])
 
 function __init__()
-    global firstdigit = JSON.parsefile(joinpath("data","firstdigit.json"))
-    global seconddigit = reshape(JSON.parsefile(joinpath("data","seconddigit.json")),(9,16))
+    module_dir = @__DIR__
+    global firstdigit = JSON.parsefile(joinpath(module_dir,"..", "data", "firstdigit.json"))
+    global seconddigit = reshape(JSON.parsefile(joinpath(module_dir,"..", "data", "seconddigit.json")),(9,16))
 end
 
 # Location of EIOPA's CIC Excel file in 'xls' format
