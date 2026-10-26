@@ -5,6 +5,8 @@ using JSON
 
 # Handles Complementary Identification Codes (CICs)
 
+export CIC, category, subcategory, country
+
 struct CIC
     cic::AbstractString
 end
@@ -14,8 +16,8 @@ subcategory(cic::CIC) = seconddigit[parse(Int, cic.cic[4]),parse(Int, cic.cic[3]
 country(cic::CIC) = country(cic.cic[1:2])
 
 function __init__()
-    global firstdigit = JSON.parse(joinpath("data","firstdigit.json"))
-    global seconddigit = reshape(copy(JSON.parse(joinpath("data","seconddigit.json"))),(9,16))
+    global firstdigit = JSON.parsefile(joinpath("data","firstdigit.json"))
+    global seconddigit = reshape(JSON.parsefile(joinpath("data","seconddigit.json")),(9,16))
 end
 
 # Location of EIOPA's CIC Excel file in 'xls' format
